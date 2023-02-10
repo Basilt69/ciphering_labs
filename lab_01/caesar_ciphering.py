@@ -2,8 +2,6 @@ import string
 import streamlit as st
 
 
-
-
 def caesar_ciphering(data, key):
     alphabet_lower = string.ascii_lowercase
     alphabet_upper = string.ascii_uppercase
@@ -11,8 +9,8 @@ def caesar_ciphering(data, key):
 
     ciphered_list = []
 
-    print(alphabet_lower)
-    print(len(punctuation))
+    st.write("This is alphabet to check out the result", alphabet_lower)
+    st.write("This is punctuation", punctuation)
 
     for letter in data:
         if letter.islower():
@@ -40,6 +38,4 @@ def caesar_ciphering(data, key):
 
 
 
-ciphered_text = text_ciphering(data, key)
-print(ciphered_text)
 
