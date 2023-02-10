@@ -9,10 +9,10 @@ def caesar_ciphering(data, key):
 
     ciphered_list = []
 
-    st.markdown("### This is alphabet to check out the result:")
+    st.markdown("This is alphabet to check out the result:")
     st.write(alphabet_lower)
 
-    st.markdown("### This is punctuation that can be used")
+    st.markdown("This is punctuation that can be used")
     st.write(punctuation)
 
     for letter in data:
@@ -56,13 +56,13 @@ def main():
 
     ciphered_msg = caesar_ciphering(message, key)
 
-    st.markdown("This is our ciphered message(using Caesar cipher):")
+    st.markdown("### This is our ciphered message(using Caesar cipher):")
     st.write(ciphered_msg)
     st.markdown(
         """
         <style>
         input {
-            font-size: 48px;
+            font-size: 64px;
         }
         </style>
         """,
