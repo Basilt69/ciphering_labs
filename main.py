@@ -13,7 +13,7 @@ def header():
         in [BMSTU](https://bmstu.ru) 
     """
 
-    st.header("BMSTU, University department: Informatics and software management - 7")
+    st.header("BMSTU, University department: Informatics and software development - 7")
     st.markdown("**Course title:** Data protection")
     st.markdown("**University lecturer**: Kivva K.A.")
     st.markdown("**Student:** Tkachenko B.M.")

@@ -41,7 +41,7 @@ def caesar_ciphering(data, key):
 
 def main():
     st.markdown("## Laboratory work №1")
-    st.markdown("###**Title**: Caesar and Vigenère ciphering")
+    st.markdown("### **Title**: Caesar and Vigenère ciphering")
 
     st.markdown("**Please, input your text**")
     message = st.text_input("(All your text, punctuation and numbers will be shifted)")
@@ -58,17 +58,6 @@ def main():
 
     st.markdown("**This is our ciphered message(using Caesar cipher):**")
     st.write(ciphered_msg)
-    st.markdown(
-        """
-        <style>
-        input {
-            font-size: 32px;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
 
 
 if __name__ == "__name__":
