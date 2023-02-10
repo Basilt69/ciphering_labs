@@ -25,7 +25,7 @@ def main():
         "Select your lab:", (
             "1. Caesar and Vigenère cipher",
         ),
-        index=1
+        index=2
     )
 
     if lab[:1] == "1":
