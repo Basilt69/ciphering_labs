@@ -9,8 +9,8 @@ def caesar_ciphering(data, key):
 
     ciphered_list = []
 
-    st.write("This is alphabet to check out the result", alphabet_lower)
-    st.write("This is punctuation", punctuation)
+    st.write("This is alphabet to check out the result:", alphabet_lower)
+    st.write("This is punctuation that can be used", punctuation)
 
     for letter in data:
         if letter.islower():

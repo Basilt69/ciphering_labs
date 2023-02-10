@@ -30,7 +30,7 @@ def main():
 
     if lab[:1] == "1":
         message = st.text_input("Please, input your text")
-        key = st.number_input('Please, input your key(actual shift)')
+        key = st.number_input('Please, input your key(actual shift)', min_value=0, max_value=26, step=1)
         st.write("This our initial message:", message)
 
         ciphered_message = caesar_ciphering.caesar_ciphering(message, key)
