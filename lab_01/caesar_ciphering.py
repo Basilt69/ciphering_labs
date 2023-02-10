@@ -9,8 +9,8 @@ def caesar_ciphering(data, key):
 
     ciphered_list = []
 
-    st.write("This is alphabet to check out the result:", alphabet_lower)
-    st.write("This is punctuation that can be used", punctuation)
+    st.subheader("This is alphabet to check out the result:", alphabet_lower)
+    st.subheader("This is punctuation that can be used", punctuation)
 
     for letter in data:
         if letter.islower():
@@ -36,6 +36,29 @@ def caesar_ciphering(data, key):
     return ''.join(ciphered_list)
 
 
+def main():
+    st.markdown("### Laboratory work №1")
+    st.markdown("**Title: Caesar and Vigenère ciphering**")
 
+    st.subheader("Please, input your text")
+    message = st.text_input()
+
+    st.subheader('Please, input your key(actual shift)')
+    key = st.number_input(min_value=0, max_value=26, step=1, value=1)
+
+    st.subheader("This is our initial message:")
+    st.write(message)
+
+    st.write("---")
+
+    ciphered_msg = caesar_ciphering(message, key)
+
+    st.subheader("This is our ciphered message(using Caesar cipher):")
+    st.write(ciphered_msg)
+
+
+
+if __name__ == "__name__":
+    main()
 
 
