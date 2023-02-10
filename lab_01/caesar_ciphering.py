@@ -9,9 +9,11 @@ def caesar_ciphering(data, key):
 
     ciphered_list = []
 
-    st.markdown("This is alphabet to check out the result:", alphabet_lower)
+    st.markdown("### This is alphabet to check out the result:")
+    st.write(alphabet_lower)
 
-    st.markdown("This is punctuation that can be used", punctuation)
+    st.markdown("### This is punctuation that can be used")
+    st.write(punctuation)
 
     for letter in data:
         if letter.islower():
@@ -59,14 +61,12 @@ def main():
     st.markdown(
         """
         <style>
-        textarea {
-            font-size: 16px;
-        }
         input {
             font-size: 16px;
         }
         </style>
         """,
+        unsafe_allow_html=True,
     )
 
 
