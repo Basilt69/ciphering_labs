@@ -56,13 +56,13 @@ def main():
 
     ciphered_msg = caesar_ciphering(message, key)
 
-    st.subheader("#### This is our ciphered message(using Caesar cipher):")
+    st.markdown("#### This is our ciphered message(using Caesar cipher):")
     st.write(ciphered_msg)
     st.markdown(
         """
         <style>
         input {
-            font-size: 18px;
+            font-size: 48px;
         }
         </style>
         """,
