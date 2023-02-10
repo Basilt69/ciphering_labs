@@ -61,9 +61,6 @@ def main():
     st.markdown(
         """
         <style>
-        textarea {
-        font-size: 36px;
-        }
         input {
             font-size: 48px;
         }
