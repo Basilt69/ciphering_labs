@@ -41,7 +41,7 @@ def main():
     st.markdown("**Title: Caesar and Vigenère ciphering**")
 
     st.subheader("Please, input your text")
-    message = st.text_input()
+    message = st.text_input("(All your text, punctuation and numbers will be shifted)")
 
     st.subheader('Please, input your key(actual shift)')
     key = st.number_input(min_value=0, max_value=26, step=1, value=1)
