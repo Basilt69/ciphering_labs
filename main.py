@@ -15,7 +15,7 @@ def header():
 
     st.header("BMSTU, University cathedra: Informatics and software management - 7")
     st.markdown("**Course title:** Data protection")
-    st.markdown("University lecturer: Kivva K.A.")
+    st.markdown("**University lecturer**: Kivva K.A.")
     st.markdown("**Student:** Tkachenko B.M.")
     st.sidebar.markdown(author)
 
@@ -32,9 +32,22 @@ def main():
         message = st.text_input("Please, input your text")
         key = st.number_input('Please, input your key(actual shift)', min_value=0, max_value=26, step=1)
         st.write("This our initial message:", message)
+        st.markdown(
+            """
+            <style>
+            textarea {
+                font-size: 3rem !important;
+            }
+            input {
+                font-size: 3rem !important;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )
 
         ciphered_message = caesar_ciphering.caesar_ciphering(message, key)
-        st.write("This is what we've got as the result of ciphering:", ciphered_message)
+        st.write("This is what we've got as the result of ciphering:\n", ciphered_message)
 
 if __name__ == "__main__":
     main()
