@@ -38,22 +38,22 @@ def caesar_ciphering(data, key):
 
 def main():
     st.markdown("### Laboratory work №1")
-    st.markdown("**Title: Caesar and Vigenère ciphering**")
+    st.markdown("**Title**: Caesar and Vigenère ciphering")
 
-    st.subheader("Please, input your text")
+    st.markdown("# Please, input your text")
     message = st.text_input("(All your text, punctuation and numbers will be shifted)", font_size=16)
 
-    st.subheader('Please, input your key(actual shift)')
+    st.markdown('# Please, input your key(actual shift)')
     key = st.number_input("(numbers shall be integers from 1 to 26)", min_value=0, max_value=26, step=1, value=1)
 
-    st.subheader("This is our initial message:")
+    st.markdown ("#This is our initial message:")
     st.write(message)
 
     st.write("---")
 
     ciphered_msg = caesar_ciphering(message, key)
 
-    st.subheader("This is our ciphered message(using Caesar cipher):")
+    st.subheader("# This is our ciphered message(using Caesar cipher):")
     st.write(ciphered_msg)
 
 
