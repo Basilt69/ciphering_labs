@@ -9,10 +9,10 @@ def caesar_ciphering(data, key):
 
     ciphered_list = []
 
-    st.markdown("This is alphabet to check out the result:")
+    st.markdown("**This is alphabet to check out the result:**")
     st.write(alphabet_lower)
 
-    st.markdown("This is punctuation that can be used")
+    st.markdown("**This is punctuation that can be used**")
     st.write(punctuation)
 
     for letter in data:
@@ -41,7 +41,7 @@ def caesar_ciphering(data, key):
 
 def main():
     st.markdown("## Laboratory work №1")
-    st.markdown("**Title**: Caesar and Vigenère ciphering")
+    st.markdown("###**Title**: Caesar and Vigenère ciphering")
 
     st.markdown("**Please, input your text**")
     message = st.text_input("(All your text, punctuation and numbers will be shifted)")
@@ -56,7 +56,7 @@ def main():
 
     ciphered_msg = caesar_ciphering(message, key)
 
-    st.markdown("### This is our ciphered message(using Caesar cipher):")
+    st.markdown("**This is our ciphered message(using Caesar cipher):**")
     st.write(ciphered_msg)
     st.markdown(
         """
