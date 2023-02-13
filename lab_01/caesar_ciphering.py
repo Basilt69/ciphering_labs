@@ -73,31 +73,79 @@ def main():
     st.markdown("## Laboratory work №1")
     st.markdown("### **Title**: Caesar and Vigenère ciphering")
 
-    st.markdown("**Please, input your text**")
-    message = st.text_input("(All your text, punctuation and numbers will be shifted)")
+    description_ces = """
+    In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is
+     one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each
+      letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, 
+      with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius 
+      Caesar, who used it in his private correspondence.
+    """
 
-    st.markdown('**Please, input your key(actual shift)**')
-    key = st.number_input("(numbers shall be integers from 1 to 26)", min_value=0, max_value=26, step=1, value=1)
+    description_vig = """
+    In a Caesar cipher, each letter of the alphabet is shifted along some number of places. For example, in a Caesar 
+    cipher of shift 3, a would become D, b would become E, y would become B and so on. The Vigenère cipher has several 
+    Caesar ciphers in sequence with different shift values. To encrypt, a table of alphabets can be used, termed a 
+    tabula recta, Vigenère square or Vigenère table. It has the alphabet written out 26 times in different rows, each 
+    alphabet shifted cyclically to the left compared to the previous alphabet, corresponding to the 26 possible Caesar 
+    ciphers. At different points in the encryption process, the cipher uses a different alphabet from one of the rows. 
+    The alphabet used at each point depends on a repeating keyword.
+    """
 
-    st.markdown ("**This is our initial message:**")
-    st.write(message)
 
-    st.write("---")
 
-    ciphered_msg = caesar_ciphering(message, key)
+    ciph_type = st.radio(
+        "Choose ciphering type", (
+            "1. Caesar ciphering",
+            "2. Vigenère ciphering",
+        )
+    )
 
-    st.markdown("**This is our ciphered message(using Caesar cipher):**")
-    st.write(ciphered_msg)
+    if ciph_type[:1] == "1":
+        show_schema = st.checkbox("Show description:")
+        if show_schema:
+            st.code(description_ces)
 
-    st.markdown("**Please, input your text to decipher**")
-    deciphering_msg = st.text_input("(All your text, punctuation and numbers shall be shifted)")
+        st.markdown("**Please, input your text**")
+        message = st.text_input("(All your text, punctuation and numbers will be shifted)")
 
-    st.markdown('**Please, input your key(actual shift)**')
-    key_desc = st.number_input("(numbers must be integers from 1 to 26)", min_value=0, max_value=26, step=1, value=1)
+        st.markdown('**Please, input your key(actual shift)**')
+        key = st.number_input("(numbers shall be integers from 1 to 26)", min_value=0, max_value=26, step=1, value=1)
 
-    deciphered_msg = caesar_deciphering(deciphering_msg, key_desc)
-    st.markdown("**This is our deciphered message(using Caesar cipher):**")
-    st.write(deciphered_msg)
+        st.markdown ("**This is our initial message:**")
+        st.write(message)
+
+        st.write("---")
+
+        ciphered_msg = caesar_ciphering(message, key)
+
+        st.markdown("**This is our ciphered message(using Caesar cipher):**")
+        st.write(ciphered_msg)
+
+        st.markdown("**Please, input your text to decipher**")
+        deciphering_msg = st.text_input("(All your text, punctuation and numbers shall be shifted)")
+
+        st.markdown('**Please, input your key(actual shift)**')
+        key_desc = st.number_input("(numbers must be integers from 1 to 26)", min_value=0, max_value=26, step=1,
+                                   value=1)
+
+        deciphered_msg = caesar_deciphering(deciphering_msg, key_desc)
+        st.markdown("**This is our deciphered message(using Caesar cipher):**")
+        st.write(deciphered_msg)
+    elif ciph_type[:1] == "2":
+        show_schema = st.checkbox("Show description:")
+        if show_schema:
+            st.code(description_vig)
+
+        st.markdown("**Please, input your text**")
+        message = st.text_input("(All your text, punctuation and numbers will be shifted)")
+
+        st.markdown('**Please, input your key(actual shift)**')
+        key = st.number_input("(numbers shall be integers from 1 to 26)", min_value=0, max_value=26, step=1, value=1)
+
+        st.markdown("**This is our initial message:**")
+        st.write(message)
+
+        st.write("---")
 
 
 if __name__ == "__name__":
