@@ -93,7 +93,7 @@ def main():
     deciphering_msg = st.text_input("(All your text, punctuation and numbers shall be shifted)")
 
     st.markdown('**Please, input your key(actual shift)**')
-    key_desc = st.number_input("(numbers shall be integers from 1 to 26)", min_value=0, max_value=26, step=1, value=1)
+    key_desc = st.number_input("(numbers must be integers from 1 to 26)", min_value=0, max_value=26, step=1, value=1)
 
     deciphered_msg = caesar_deciphering(deciphering_msg, key_desc)
     st.markdown("**This is our deciphered message(using Caesar cipher):**")
