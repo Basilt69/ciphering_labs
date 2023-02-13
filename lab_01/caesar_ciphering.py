@@ -39,32 +39,32 @@ def caesar_ciphering(data, key):
     return ''.join(ciphered_list)
 
 
-def caesar_deciphering(data, key):
+def caesar_deciphering(deciphering_msg, key_desc):
     alphabet_lower = string.ascii_lowercase
     alphabet_upper = string.ascii_uppercase
     punctuation = string.punctuation
 
     deciphered_list = []
-    for letter in data:
+    for letter in deciphering_msg:
         if letter.islower():
             try:
-                deciphered_list.append(alphabet_lower[alphabet_lower.index(letter)-key])
+                deciphered_list.append(alphabet_lower[alphabet_lower.index(letter)-key_desc])
             except IndexError:
-                deciphered_list.append(alphabet_lower[26 - abs(key - alphabet_lower.index(letter))])
+                deciphered_list.append(alphabet_lower[26 - abs(key_desc - alphabet_lower.index(letter))])
         elif letter.isupper():
             try:
-                deciphered_list.append(alphabet_upper[alphabet_upper.index(letter)-key])
+                deciphered_list.append(alphabet_upper[alphabet_upper.index(letter)-key_desc])
             except IndexError:
-                deciphered_list.append(alphabet_upper[26 - abs(key-alphabet_upper.index(letter))])
+                deciphered_list.append(alphabet_upper[26 - abs(key_desc-alphabet_upper.index(letter))])
         elif letter in punctuation:
             try:
-                deciphered_list.append(punctuation[punctuation.index(letter) - key])
+                deciphered_list.append(punctuation[punctuation.index(letter) - key_desc])
             except IndexError:
-                deciphered_list.append(punctuation[32 - abs(key - punctuation.index(letter))])
+                deciphered_list.append(punctuation[32 - abs(key_desc - punctuation.index(letter))])
         elif letter.isspace():
             deciphered_list.append(letter)
         elif letter.isnumeric():
-            deciphered_list.append(str(int(letter) - key))
+            deciphered_list.append(str(int(letter) - key_desc))
 
     return ''.join(deciphered_list)
 
