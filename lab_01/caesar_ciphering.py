@@ -75,13 +75,18 @@ def caesar_deciphering(deciphering_msg, key_desc):
 def load_data():
     alphabet_lower = string.ascii_lowercase
     alphabet_upper = string.ascii_uppercase
-
-    df_upper = pd.DataFrame()
-    df_lower = pd.DataFrame()
+    lists_upper = {}
+    lists_lower = {}
 
     for i in range(26):
-        df_upper[i] = alphabet_upper[i:] + alphabet_upper[:i]
-        df_lower[i] = alphabet_lower[i:] + alphabet_lower[:i]
+        lists_upper[i] = list(alphabet_upper[i:] + alphabet_upper[:i])
+        lists_lower[i] = list(alphabet_lower[i:] + alphabet_lower[:i])
+    df_upper = pd.DataFrame(lists_upper)
+    df_lower = pd.DataFrame(lists_lower)
+    df_upper = df_upper.set_axis(list(alphabet_upper), axis='index')
+    df_upper = df_upper.set_axis(list(alphabet_upper), axis='columns')
+    df_lower = df_lower.set_axis(list(alphabet_lower), axis='index')
+    df_lower = df_lower.set_axis(list(alphabet_lower), axis='columns')
 
     return df_upper, df_lower
 
