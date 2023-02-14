@@ -1,4 +1,5 @@
 import string
+import pandas as pd
 import streamlit as st
 
 
@@ -69,6 +70,25 @@ def caesar_deciphering(deciphering_msg, key_desc):
     return ''.join(deciphered_list)
 
 
+#cache the dataframe so it's only loaded once
+@st.cache_data
+def load_data():
+    alphabet_lower = string.ascii_lowercase
+    alphabet_upper = string.ascii_uppercase
+
+    df_upper = pd.DataFrame()
+    df_lower = pd.DataFrame()
+
+    for i in range(26):
+        df_upper[i] = alphabet_upper[i:] + alphabet_upper[:i]
+        df_lower[i] = alphabet_lower[i:] + alphabet_lower[:i]
+
+    return df_upper, df_lower
+
+
+
+
+
 def main():
     st.markdown("## Laboratory work №1")
     st.markdown("### **Title**: Caesar and Vigenère ciphering")
@@ -137,15 +157,30 @@ def main():
             st.code(description_vig)
 
         st.markdown("**Please, input your text**")
-        message = st.text_input("(All your text, punctuation and numbers will be shifted)")
+        message = st.text_input("(Your text will be shifted irrespective of whether it is lower- or uppercase written)")
 
-        st.markdown('**Please, input your key(actual shift)**')
-        key = st.number_input("(numbers shall be integers from 1 to 26)", min_value=0, max_value=26, step=1, value=1)
+        st.markdown('**Please, input your key(word)**')
+        key = st.text_input("(only english alphabet letters are allowed)")
 
         st.markdown("**This is our initial message:**")
         st.write(message)
 
         st.write("---")
+
+        # Boolean to resize the dataframe, stored as a session state variable
+        st.checkbox("Use container width", value=False, key="use_container_width")
+
+        df_upper, df_lower = load_data()
+
+        #display the dataframe and allow the user to stretch the dataframe
+        #across the full width of the container, based on the checkbox value
+        st.dataframe(df_upper, use_container_width=st.session_state.use_container_width)
+        st.dataframe(df_lower, use_container_width=st.session_state.use_container_width)
+
+
+
+
+
 
 
 if __name__ == "__name__":
