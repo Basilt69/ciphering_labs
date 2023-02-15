@@ -249,7 +249,7 @@ def main():
         message = st.text_input("(Each letter shall be either lower- or uppercase)")
 
         st.markdown('**Please, input your key(word)**')
-        key = st.text_input("(only english alphabet letters are allowed(each letter shall be either uppercase or "
+        key = st.text_input("(only english alphabet letters are allowed(each letter MUST be either uppercase or "
                             "lowercase))")
 
         st.markdown("**This is our initial message:**")
