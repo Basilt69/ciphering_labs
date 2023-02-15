@@ -170,6 +170,8 @@ def vigenere_deciphering(deciphering_vig_msg, key_vig, df_upper, df_lower):
             for i in range(26):
                 if df_upper[prepard_vig_key[i]][:][i] == prepared_vig_msg[i]:
                     deciphering_list.append(alphabet_upper[i])
+                else:
+                    continue
         elif prepared_vig_msg[i].islower():
             for i in range(26):
                 if df_lower[prepard_vig_key[i]][:][i] == prepared_vig_msg[i]:
