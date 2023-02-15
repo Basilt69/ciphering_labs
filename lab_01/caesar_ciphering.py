@@ -91,6 +91,57 @@ def load_data():
     return df_upper, df_lower
 
 
+def data_prep(message, key):
+    punctuation = string.punctuation
+
+    msg_list = list(message)
+    key_list = list(key)
+
+    new_key = []
+    counter = 0
+    indexes = []
+    elem = []
+
+    for i in message:
+        if i.isspace():
+            indexes.append(counter)
+            counter += 1
+            elem.append(i)
+        elif i in punctuation:
+            indexes.append(counter)
+            counter += 1
+            elem.append(i)
+        else:
+            counter += 1
+
+    for el in elem:
+        msg_list.remove(el)
+
+    full = len(msg_list) // len(key_list)
+    partial = len(msg_list) % len(key_list)
+
+    new_key = key_list * full + key_list[:partial]
+
+    for i in range(len(indexes)):
+        new_key.insert(indexes[i], elem[i])
+
+    return new_key
+
+
+def vigenere_ciphering(message, key, df_upper, df_lower):
+    alphabet_lower = string.ascii_lowercase
+    alphabet_upper = string.ascii_uppercase
+    punctuation = string.punctuation
+    df_upper = df_upper
+    df_lower = df_lower
+
+    # all data to cipher
+    prepard_key = data_prep(message, key)
+    prepared_msg = list(message)
+
+
+
+
 
 
 
@@ -180,7 +231,11 @@ def main():
         #display the dataframe and allow the user to stretch the dataframe
         #across the full width of the container, based on the checkbox value
         st.dataframe(df_upper, use_container_width=st.session_state.use_container_width)
-        st.dataframe(df_lower, use_container_width=st.session_state.use_container_width)
+        #st.dataframe(df_lower, use_container_width=st.session_state.use_container_width)
+
+        vig_ciphered_msg = vigenere_ciphering(message, key, df_upper, df_lower)
+        st.markdown("**This is our ciphered message(using Vigenere cipher):**")
+        st.write(vig_ciphered_msg)
 
 
 
