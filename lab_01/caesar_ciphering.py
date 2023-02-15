@@ -139,6 +139,21 @@ def vigenere_ciphering(message, key, df_upper, df_lower):
     prepard_key = data_prep(message, key)
     prepared_msg = list(message)
 
+    ciphered_msg = []
+    for i in range(len(prepared_msg)):
+        if prepared_msg[i].isupper():
+            ciphered_msg.append(df_upper[prepard_key[i]][prepared_msg[i]])
+        elif prepared_msg[i].islower():
+            ciphered_msg.append(df_lower[prepard_key[i]][prepared_msg[i]])
+        elif prepared_msg[i] in punctuation:
+            ciphered_msg.append(prepared_msg[i])
+        elif prepared_msg[i].isspace():
+            ciphered_msg.append(prepared_msg[i])
+        elif prepared_msg[i].isnumeric():
+            ciphered_msg.append(prepared_msg[i])
+
+    return ''.join(ciphered_msg)
+
 
 
 
