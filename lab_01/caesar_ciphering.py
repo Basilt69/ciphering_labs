@@ -132,8 +132,6 @@ def vigenere_ciphering(message, key, df_upper, df_lower):
     alphabet_lower = string.ascii_lowercase
     alphabet_upper = string.ascii_uppercase
     punctuation = string.punctuation
-    df_upper = df_upper
-    df_lower = df_lower
 
     # all data to cipher
     prepard_key = data_prep(message, key)
@@ -155,6 +153,26 @@ def vigenere_ciphering(message, key, df_upper, df_lower):
     return ''.join(ciphered_msg)
 
 
+def vigenere_deciphering(deciphering_vig_msg, key_vig, df_upper, df_lower):
+    alphabet_lower = string.ascii_lowercase
+    alphabet_upper = string.ascii_uppercase
+    punctuation = string.punctuation
+
+    deciphering_vig_msg = list(deciphering_vig_msg)
+    deciphering_list = []
+
+    # all data to cipher
+    prepard_vig_key = data_prep(deciphering_vig_msg, key_vig)
+    prepared_vig_msg = list(deciphering_vig_msg)
+
+    for i in range(len(prepared_vig_msg)):
+        if prepared_vig_msg[i].isupper():
+            interm = df_upper[prepard_vig_key[i]][:]
+            for i in range(26):
+                if df_upper[prepard_vig_key[i]][:][i] == prepared_vig_msg[i]:
+                    deciphering_list.append(alphabet_upper[i])
+
+    return ''.join(deciphering_list)
 
 
 
@@ -228,10 +246,11 @@ def main():
             st.code(description_vig)
 
         st.markdown("**Please, input your text**")
-        message = st.text_input("(Your text will be shifted irrespective of whether it is lower- or uppercase written)")
+        message = st.text_input("(Each letter shall be either lower- or uppercase)")
 
         st.markdown('**Please, input your key(word)**')
-        key = st.text_input("(only english alphabet letters are allowed)")
+        key = st.text_input("(only english alphabet letters are allowed(each letter shall be either uppercase or "
+                            "lowercase))")
 
         st.markdown("**This is our initial message:**")
         st.write(message)
@@ -251,6 +270,21 @@ def main():
         vig_ciphered_msg = vigenere_ciphering(message, key, df_upper, df_lower)
         st.markdown("**This is our ciphered message(using Vigenere cipher):**")
         st.write(vig_ciphered_msg)
+
+        st.markdown("**Please, input your text to decipher**")
+        deciphering_vig_msg = st.text_input("(All your text will be deciphered(each letter shall be either uppercase "
+                                            "or lowercase"
+                                            "))")
+
+        st.markdown('**Please, input your key(word) to decipher**')
+        key_vig = st.text_input("(only english alphabet letters are allowed(each letter shall be either uppercase or "
+                            "lowercase))")
+
+        deciphered_vig_msg = vigenere_deciphering(deciphering_vig_msg, key_vig, df_upper, df_lower)
+        st.markdown("**This is our deciphered message(using Vigenère cipher):**")
+        st.write(deciphered_vig_msg)
+
+
 
 
 
