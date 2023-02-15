@@ -167,15 +167,13 @@ def vigenere_deciphering(deciphering_vig_msg, key_vig, df_upper, df_lower):
 
     for i in range(len(prepared_vig_msg)):
         if prepared_vig_msg[i].isupper():
-            for i in range(26):
-                if df_upper[prepard_vig_key[i]][:][i] == prepared_vig_msg[i]:
-                    deciphering_list.append(alphabet_upper[i])
-                else:
-                    continue
+            for k in range(26):
+                if df_upper[prepard_vig_key[i]][:][k] == prepared_vig_msg[i]:
+                    deciphering_list.append(alphabet_upper[k])
         elif prepared_vig_msg[i].islower():
-            for i in range(26):
-                if df_lower[prepard_vig_key[i]][:][i] == prepared_vig_msg[i]:
-                    deciphering_list.append(alphabet_lower[i])
+            for k in range(26):
+                if df_lower[prepard_vig_key[i]][:][k] == prepared_vig_msg[i]:
+                    deciphering_list.append(alphabet_lower[k])
         elif prepared_vig_msg[i] in punctuation:
             deciphering_list.append(prepared_vig_msg[i])
         elif prepared_vig_msg[i].isspace():
