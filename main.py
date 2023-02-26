@@ -1,6 +1,7 @@
 import streamlit as st
 
 from lab_01 import caesar_ciphering
+from lab_02 import rsa
 
 
 st.sidebar.image('logo.png', width=300)
@@ -24,12 +25,16 @@ def main():
     lab = st.sidebar.radio(
         "Select your lab:", (
             "1. Caesar and Vigenère cipher",
+            "2. RSA ciphering",
         ),
-        index=0
+        index=1
     )
 
     if lab[:1] == "1":
         caesar_ciphering.main()
+
+    elif lab[:1] == "2":
+        rsa.main()
 
 
 if __name__ == "__main__":
