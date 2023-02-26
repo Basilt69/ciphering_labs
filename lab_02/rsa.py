@@ -133,7 +133,7 @@ def main():
 
     with st.form("Encrypt"):
         message = st.text_area(
-            "Input your message to br ciphered",
+            "Input your message to be ciphered",
             value = "It's necessary to solve the problem within 24 hours!"
         )
 
@@ -142,13 +142,15 @@ def main():
         if show_encrypted:
             st.write(encrypted)
 
-        st.form_submit_button("Cipher")
+        st.form_submit_button("Encrypt")
 
     with st.form("Decrypt"):
         decrypted = rsa.decrypt(encrypted, private_key)
-        st.write(decrypted)
+        show_dencrypted = st.checkbox("Show decrypted message")
+        if show_dencrypted:
+            st.write(decrypted)
 
-        st.form_submit_button("Decipher")
+        st.form_submit_button("Decrypt")
 
 
 if __name__ == "__main__":
