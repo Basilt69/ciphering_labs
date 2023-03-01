@@ -234,11 +234,12 @@ def main():
 
         st.write("---")
 
-        st.stop()
+        st.markdown("**This is our ciphered message(using Caesar cipher):**")
+
 
         ciphered_msg = caesar_ciphering(message, key)
 
-        st.markdown("**This is our ciphered message(using Caesar cipher):**")
+
         st.write(ciphered_msg)
 
         st.markdown("**Please, input your text to decipher**")
@@ -248,10 +249,10 @@ def main():
         key_desc = st.number_input("(numbers must be integers from 1 to 26)", min_value=0, max_value=26, step=1,
                                    value=1)
 
-        st.stop()
+        st.markdown("**This is our deciphered message(using Caesar cipher):**")
 
         deciphered_msg = caesar_deciphering(deciphering_msg, key_desc)
-        st.markdown("**This is our deciphered message(using Caesar cipher):**")
+
         st.write(deciphered_msg)
     elif ciph_type[:1] == "2":
         show_schema = st.checkbox("Show description:")
@@ -280,10 +281,10 @@ def main():
         st.dataframe(df_upper, use_container_width=st.session_state.use_container_width)
         #st.dataframe(df_lower, use_container_width=st.session_state.use_container_width)
 
-        st.stop()
+        st.markdown("**This is our ciphered message(using Vigenere cipher):**")
 
         vig_ciphered_msg = vigenere_ciphering(message, key, df_upper, df_lower)
-        st.markdown("**This is our ciphered message(using Vigenere cipher):**")
+
         st.write(vig_ciphered_msg)
 
         st.markdown("**Please, input your text to decipher**")
@@ -295,18 +296,11 @@ def main():
         key_vig = st.text_input("(only english alphabet letters are allowed(each letter shall be either uppercase or "
                             "lowercase))")
 
-        st.stop()
+        st.markdown("**This is our deciphered message(using Vigenère cipher):**")
 
         deciphered_vig_msg = vigenere_deciphering(deciphering_vig_msg, key_vig, df_upper, df_lower)
-        st.markdown("**This is our deciphered message(using Vigenère cipher):**")
+
         st.write(deciphered_vig_msg)
-
-
-
-
-
-
-
 
 
 if __name__ == "__name__":
