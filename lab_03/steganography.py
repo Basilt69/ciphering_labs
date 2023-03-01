@@ -115,6 +115,7 @@ def encrypt(image_name, secret_data):
 
 
 
+
 def main():
     st.markdown("## Laboratory work №3")
     st.markdown("### **Title**: Steganography")

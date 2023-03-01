@@ -2,7 +2,7 @@ import streamlit as st
 
 from lab_01 import caesar_ciphering
 from lab_02 import rsa
-from lab_03 import steganography
+#from lab_03 import steganography
 
 
 st.sidebar.image('logo.png', width=300)
@@ -38,8 +38,8 @@ def main():
     elif lab[:1] == "2":
         rsa.main()
 
-    elif lab[:1] == "3":
-        steganography.main()
+    #elif lab[:1] == "3":
+        #steganography.main()
 
 
 if __name__ == "__main__":
