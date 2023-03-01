@@ -234,6 +234,8 @@ def main():
 
         st.write("---")
 
+        st.stop()
+
         ciphered_msg = caesar_ciphering(message, key)
 
         st.markdown("**This is our ciphered message(using Caesar cipher):**")
@@ -245,6 +247,8 @@ def main():
         st.markdown('**Please, input your key(actual shift)**')
         key_desc = st.number_input("(numbers must be integers from 1 to 26)", min_value=0, max_value=26, step=1,
                                    value=1)
+
+        st.stop()
 
         deciphered_msg = caesar_deciphering(deciphering_msg, key_desc)
         st.markdown("**This is our deciphered message(using Caesar cipher):**")
@@ -276,6 +280,8 @@ def main():
         st.dataframe(df_upper, use_container_width=st.session_state.use_container_width)
         #st.dataframe(df_lower, use_container_width=st.session_state.use_container_width)
 
+        st.stop()
+
         vig_ciphered_msg = vigenere_ciphering(message, key, df_upper, df_lower)
         st.markdown("**This is our ciphered message(using Vigenere cipher):**")
         st.write(vig_ciphered_msg)
@@ -288,6 +294,8 @@ def main():
         st.markdown('**Please, input your key(word) to decipher**')
         key_vig = st.text_input("(only english alphabet letters are allowed(each letter shall be either uppercase or "
                             "lowercase))")
+
+        st.stop()
 
         deciphered_vig_msg = vigenere_deciphering(deciphering_vig_msg, key_vig, df_upper, df_lower)
         st.markdown("**This is our deciphered message(using Vigenère cipher):**")
