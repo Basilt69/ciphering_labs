@@ -4,3 +4,5 @@ streamlit~=1.18.0
 
 #SymPy
 sympy==1.11.1
+
+opencv-python==4.7.0.72
