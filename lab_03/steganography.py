@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 
 from io import BytesIO
 
-
+#kdmf
 FILE_TYPES = ["png", "bmp"]
 
 URL = "https://adonius.club/uploads/posts/2022-01/1641932928_8-adonius-club-p-fon-gor-8.png"
