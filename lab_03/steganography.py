@@ -83,9 +83,9 @@ def to_bin(data):
         raise TypeError("Type not supported.")
 
 
-def encrypt(image_name, secret_data):
+def encrypt(image, secret_data):
     # read the image
-    image = cv2.imread(image_name)
+    #image = cv2.imread(image_name)
 
     #maximum bytes to encode
     n_bytes = image.shape[0] * image[1] * 3 // 8
