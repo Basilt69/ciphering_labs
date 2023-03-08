@@ -88,8 +88,8 @@ def encrypt(image, secret_data):
     #image = cv2.imread(image_name)
 
     #maximum bytes to encode
-    st.write(image.shape)
-    st.markdown(image.shape[0], image.shape[1])
+    st.write(image.size)
+    st.markdown(image.size[0], image.size[1])
     #n_bytes = image.shape[0] * image.shape[1] * 3 // 8
     n_bytes = image.size[0] * image.size[1] * 3 // 8
 
