@@ -5,6 +5,8 @@ import cv2
 
 from PIL import Image, ImageDraw, UnidentifiedImageError
 from urllib.parse import urlparse
+from random import randint
+from io import BytesIO
 
 from io import BytesIO
 
@@ -131,6 +133,35 @@ def encrypt(image, secret_data):
                 break
     return image
 
+def encrypt_2(img, message):
+    keys = []
+    draw_object = ImageDraw.Draw(img)
+    width = img.size[0]
+    height = img.size[1]
+    pixels = img.load()
+
+    for elem in ([ord(elem) for elem in message]):
+        key = (randint(1, width - 10), randint(1, height - 10))
+        g, b = pixels[key][1:3]
+        draw_object.point(key, (elem, g, b))
+        keys.append(key)
+
+    st.write("Keys:")
+    st.code(keys)
+    st.write("Image with an encrypted text:")
+    st.image(img)
+    return keys, img
+
+
+def decrypt_2(img, keys):
+    a = []
+    pixels = img.load()
+    for key in keys:
+        a.append(pixels[key][0])
+    res = ''.join([chr(elem) for elem in a])
+    st.write(res)
+
+
 
 def decrypt(image_name):
     st.markdown("Decoding ...")
@@ -172,13 +203,13 @@ def main():
 
     with st.form("encrypt"):
         st.form_submit_button("Encrypt")
-        encrypted_img = encrypt(img, message)
+        keys, encrypted_img = encrypt_2(img, message)
 
     get_image_download_link(encrypted_img, "Save your image with encryption")
 
     with st.form("decrypt"):
         st.form_submit_button("Descrypt")
-        decrypt(encrypted_img)
+        decrypt_2(encrypted_img, keys)
 
 
 if __name__ == "__main__":
