@@ -136,8 +136,8 @@ def huffman_decoding(encoded_data, huffman_tree):
             decoded_output.append(huffman_tree.symbol)
             huffman_tree = tree_head
 
-        string = ''.join([str(item) for item in decoded_output])
-        return string
+    string = ''.join([str(item) for item in decoded_output])
+    return string
 
 
 
