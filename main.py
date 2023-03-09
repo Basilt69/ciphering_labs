@@ -3,6 +3,7 @@ import streamlit as st
 from lab_01 import caesar_ciphering
 from lab_02 import rsa
 from lab_03 import steganography
+from lab_04 import huffman
 
 
 st.sidebar.image('logo.png', width=300)
@@ -26,10 +27,11 @@ def main():
     lab = st.sidebar.radio(
         "Select your lab:", (
             "1. Caesar and Vigenère cipher",
-            "2. RSA ciphering",
-            "3. Steganography ciphering",
+            "2. RSA encryption",
+            "3. Steganography encryption",
+            "4. Huffman algorithm",
         ),
-        index=2
+        index=3
     )
 
     if lab[:1] == "1":
@@ -40,6 +42,9 @@ def main():
 
     elif lab[:1] == "3":
         steganography.main()
+
+    elif lab[:1] == "4":
+        huffman.main()
 
 
 if __name__ == "__main__":
