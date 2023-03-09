@@ -80,9 +80,9 @@ def total_gain(data, coding):
 def huffman_encoding(data):
     symbol_with_probs = calculate_probability(data)
     symbols = symbol_with_probs.keys()
-    probabilities = symbol_with_probs.values()
+    #probabilities = symbol_with_probs.values()
     st.write("Symbols: ", symbols)
-    st.write("Probabilities: ", probabilities)
+    #st.write("Probabilities: ", probabilities)
 
     nodes = []
 
