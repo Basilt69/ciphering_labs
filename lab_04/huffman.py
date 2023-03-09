@@ -111,7 +111,7 @@ def huffman_encoding(data):
     encoding_res = calculate_codes(nodes[0])
 
     freq = pd.DataFrame.from_dict(dict(Counter(data)), orient="index", columns=["Frequency"])
-    df = pd.DataFrame.from_dict(encoding_res, orient="index", dolumns=["Code"])
+    df = pd.DataFrame.from_dict(encoding_res, orient="index", columns=["Code"])
     merged_df = freq.merge(df, left_index=True, right_index=True).sort_values(by="Frequency")
     st.write("Symbols with frequency and code:", merged_df)
 
