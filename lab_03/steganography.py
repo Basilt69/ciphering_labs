@@ -106,7 +106,7 @@ def main():
     st.markdown("---")
 
     user_img = uploader(st.file_uploader("Upload your image", type=FILE_TYPES))
-    user_url = validate_url(st.text_input(f"Inpute your image url {FILE_TYPES}: ", URL))
+    user_url = validate_url(st.text_input(f"Input your image url {FILE_TYPES}: ", URL))
 
     img = get_image(user_img, user_url)
 
