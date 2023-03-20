@@ -50,6 +50,51 @@ def PRGA(S):
         yield K
 
 
+def get_keystream(key):
+    '''
+        Takes the encryption key to get the keystream using PRGA
+        return object is a generator
+    '''
+    S = KSA(key)
+    return PRGA(S)
+
+
+def encrypt_logic(key, text):
+    '''
+    key => encryption key used for encrypting as hex string
+    text => array of unicode values / bytes string to encrypt/ decrypt
+    '''
+    # for plaintext key use this
+    key = [ord(c) for c in key]
+    # if key is in hex
+    # key = codecs.decode(key, 'hex_code')
+    # key = [c for c in key]
+    keystream = get_keystream(key)
+
+    res = []
+    for c in text:
+        val = ("%02X" % (c ^ next(keystream))) # XOR and taking hex
+        res.append(val)
+    return ''.join(res)
+
+
+def encrypt(key, plaintext):
+    '''
+    :param key: encryption key used for encrypting as hex string
+    :param plaintext: plaintext string to encrypt
+    '''
+    plaintext = [ord(c) for c in plaintext]
+    return encrypt_logic(key, plaintext)
+
+
+def decrypt(key, ciphertext):
+    '''
+    key => encrypting key used for encrypting as hex string
+    ciphertext => hex encoded ciphered text using RC4
+    '''
+    ciphertext = codecs.decode(ciphertext, 'hex_codec')
+    res = encrypt_logic(key, ciphertext)
+    return codecs.decode(res, 'hec_codec').decode('utf-8')
 
 
 def main():
@@ -73,17 +118,17 @@ def main():
             "**Please, input your text to be ciphered**",
             value="Meine kleine Swester hat ein Handchen!"
         )
+        key = 'not-so-random-key'
         st.form_submit_button("Encrypt")
-        encoded, tree, size_before, size_after = huffman_encoding(message)
+        ciphertext = encrypt(key, message)
         st.write("Compression result:")
-        st.code(encoded)
-        st.write("Size of the text before the compression(bites): ", size_before)
-        st.write("Size of the text after the compression(bites): ", size_after)
+        st.code(ciphertext)
 
-    with st.form("huffman decoding"):
-        st.form_submit_button("Decompress")
-        decoded = huffman_decoding(encoded, tree)
-        st.write(decoded)
+
+    with st.form("TC4 decoding"):
+        st.form_submit_button("Decryption")
+        decrypted = decrypt(key, ciphertext)
+        st.write(decrypted)
 
 
 if __name__ == "__main__":
