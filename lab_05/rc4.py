@@ -94,7 +94,7 @@ def decrypt(key, ciphertext):
     '''
     ciphertext = codecs.decode(ciphertext, 'hex_codec')
     res = encrypt_logic(key, ciphertext)
-    return codecs.decode(res, 'hec_codec').decode('utf-8')
+    return codecs.decode(res, 'hex_codec').decode('utf-8')
 
 
 def main():
