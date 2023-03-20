@@ -121,7 +121,7 @@ def main():
         key = 'not-so-random-key'
         st.form_submit_button("Encrypt")
         ciphertext = encrypt(key, message)
-        st.write("Compression result:")
+        st.write("Encryption result:")
         st.code(ciphertext)
 
 
