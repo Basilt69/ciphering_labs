@@ -4,6 +4,7 @@ from lab_01 import caesar_ciphering
 from lab_02 import rsa
 from lab_03 import steganography
 from lab_04 import huffman
+from lab_05 import rc4
 
 
 st.sidebar.image('logo.png', width=300)
@@ -30,8 +31,9 @@ def main():
             "2. RSA encryption",
             "3. Steganography encryption",
             "4. Huffman algorithm",
+            "5. RC4 algorithm",
         ),
-        index=3
+        index=4
     )
 
     if lab[:1] == "1":
@@ -45,6 +47,9 @@ def main():
 
     elif lab[:1] == "4":
         huffman.main()
+
+    elif lab[:1] == "5":
+        rc4.main()
 
 
 if __name__ == "__main__":
