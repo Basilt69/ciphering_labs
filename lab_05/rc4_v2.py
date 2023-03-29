@@ -121,7 +121,8 @@ def main():
             "**Please, input your key**",
             value="not-so-random-key"
         )
-        n = st.number_input('Insert the number pf bits to be considered at a time')
+        n = st.number_input('Insert the number pf bits to be considered at a time', min_value=1, max_value=8,
+                            value=1, step=1)
 
         st.form_submit_button("Encrypt")
         ciphertext = encryption(key, plain_text, n)
