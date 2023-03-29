@@ -10,6 +10,7 @@ def encryption(key, plain_text, n):
     st.write("Initial state vector array", s)
 
     key_list = [key[i:i + n] for i in range(0, len(key), n)]
+    st.write(key_list)
 
     # convert key_stream to decimal
     for i in range(len(key_list)):
