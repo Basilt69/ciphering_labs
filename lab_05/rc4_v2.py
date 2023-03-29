@@ -11,7 +11,7 @@ def encryption(key, plain_text, n):
 
     key_list = [key[i:i + n] for i in range(0, len(key), n)]
     st.write([ord(c) for c in key_list])
-    st.write([bin(c) for c in key_list])
+    st.write([bin(c)[2:] for c in key_list])
 
     # convert key_stream to decimal
     for i in range(len(key_list)):
