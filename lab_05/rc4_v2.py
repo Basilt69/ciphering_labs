@@ -93,6 +93,7 @@ def encryption(key, plain_text, n):
         encrypted_to_bits += '0'*(n-len(bin(i)[2:])) + bin(i)[2:]
 
     st.write(encrypted_to_bits)
+    return encrypted_to_bits
 
 
 
