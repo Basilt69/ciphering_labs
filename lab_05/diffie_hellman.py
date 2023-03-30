@@ -81,8 +81,8 @@ def encryption(message):
     st.write("This is Alice's partial key: ", a_partial)
     st.write("This is Bob's partial key: ", b_partial)
 
-    a_full = Alice.generate_full_key(a_partial)
-    b_full = Bob.generate_full_key(b_partial)
+    a_full = Alice.generate_full_key(b_partial)
+    b_full = Bob.generate_full_key(a_partial)
     st.write("This is Alice's full key: ", a_full)
     st.write("This is Bob's full key: ", b_full)
 
