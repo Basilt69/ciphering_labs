@@ -3,6 +3,8 @@ import sympy
 
 '''
 Source: https://cryptor.net/bezopasnost/diffie-hellman-protocol?ysclid=lfuy73fi8f479041113
+
+Wiki: https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange
 '''
 
 
@@ -42,10 +44,12 @@ class DH_Endpoint(object):
 # public key - primes generation
 def pub_keys_gen():
     p = sympy.randprime(0,100)
-    if sympy.isprime((p-1)/2):
+    #wiki says that p shall be just prime
+    '''if sympy.isprime((p-1)/2):
         return p, 1%p #return p and g(mod p) which are public keys
     else:
-        pub_keys_gen()
+        pub_keys_gen()'''
+    return p, 1 % p  # return p and g(mod p) which are public keys
 
 
 # private key - primes generation
