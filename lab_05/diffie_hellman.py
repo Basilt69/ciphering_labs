@@ -49,11 +49,11 @@ def pub_keys_gen():
     g = p * randint(1,100) + 1
     #wiki says that p shall be just prime
     '''if sympy.isprime((p-1)/2):
-        return p, 1%p #return p and g(mod p) which are public keys
+        return p, 1%p #return p and g = 1(mod p) which are public keys
     else:
         pub_keys_gen()
     return p, 1 % p'''
-    return p, g # return p and g(mod p) which are public keys
+    return p, g # return p and g= 1(mod p) which are public keys
 
 
 # private key - primes generation
