@@ -86,7 +86,7 @@ def encrypt(key, plaintext):
     :param key: encryption key used for encrypting as hex string
     :param plaintext: plaintext string to encrypt
     '''
-    plaintext = [ord(c) for c in plaintext]
+    plaintext = [bin(ord(c)) for c in plaintext]
     return encrypt_logic(key, plaintext)
 
 
