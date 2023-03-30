@@ -76,6 +76,7 @@ def encrypt_logic(key, text):
     for c in text:
         st.write('This is c',bin(c))
         st.write('This is next keystream', bin(next(keystream)))
+        st.write(bin(c) ^ bin(next(keystream)))
         val = ("%02X" % (c ^ next(keystream))) # XOR and taking hex
         res.append(val)
     return ''.join(res)
