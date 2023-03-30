@@ -10,8 +10,9 @@ def encryption(key, plain_text, n):
     st.write("Initial state vector array", s)
 
     key_list = [key[i:i + n] for i in range(0, len(key), n)]
-    st.write([ord(c) for c in key_list])
-    st.write([bin(ord(c))[2:] for c in key_list])
+    key_list = [bin(ord(i))[2:] for i in key_list]
+    #st.write([ord(c) for c in key_list])
+    #st.write([bin(ord(c))[2:] for c in key_list])
 
     # convert key_stream to decimal
     for i in range(len(key_list)):
