@@ -41,7 +41,7 @@ class DH_Endpoint(object):
 
 # public key - primes generation
 def pub_keys_gen():
-    p = sympy.randprime(0,1000)
+    p = sympy.randprime(0,100)
     if sympy.isprime((p-1)/2):
         return p, 1%p #return p and g(mod p) which are public keys
     else:
@@ -50,7 +50,7 @@ def pub_keys_gen():
 
 # private key - primes generation
 def priv_keys_gen():
-    return sympy.randprime(0,1000), sympy.randprime(0,1000)
+    return sympy.randprime(0,100), sympy.randprime(0,100)
 
 
 def encryption(message):
