@@ -4,7 +4,7 @@ from lab_01 import caesar_ciphering
 from lab_02 import rsa
 from lab_03 import steganography
 from lab_04 import huffman
-from lab_05 import rc4, rc4_v2, rc4_v3, diffie_hellman
+from lab_05 import diffie_hellman
 
 
 st.sidebar.image('logo.png', width=300)
@@ -50,7 +50,6 @@ def main():
 
     elif lab[:1] == "5":
         diffie_hellman.main()
-
 
 
 if __name__ == "__main__":
