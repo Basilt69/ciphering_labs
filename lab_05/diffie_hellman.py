@@ -24,7 +24,7 @@ class DH_Endpoint(object):
 
     def generate_full_key(self, partial_key_r):
         full_key = partial_key_r**self.private_key
-        full_key = full_key%self.self.public_key2
+        full_key = full_key%self.public_key2
         self.full_key = full_key
         return full_key
 
