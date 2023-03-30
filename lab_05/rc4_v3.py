@@ -65,7 +65,7 @@ def encrypt_logic(key, text):
     text => array of unicode values / bytes string to encrypt/ decrypt
     '''
     # for plaintext key use this
-    key = [ord(c) for c in key]
+    key = [bin(ord(c)) for c in key]
     # if key is in hex
     # key = codecs.decode(key, 'hex_code')
     # key = [c for c in key]
