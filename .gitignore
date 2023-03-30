@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # pycharm
-.idea
+.idea/
 img.png
