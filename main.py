@@ -4,7 +4,7 @@ from lab_01 import caesar_ciphering
 from lab_02 import rsa
 from lab_03 import steganography
 from lab_04 import huffman
-from lab_05 import rc4, rc4_v2, rc4_v3
+from lab_05 import rc4, rc4_v2, rc4_v3, diffie_hellman
 
 
 st.sidebar.image('logo.png', width=300)
@@ -31,7 +31,7 @@ def main():
             "2. RSA encryption",
             "3. Steganography encryption",
             "4. Huffman algorithm",
-            "5. RC4 algorithm",
+            "5. Diffie-Hellman algorithm",
         ),
         index=4
     )
@@ -49,9 +49,7 @@ def main():
         huffman.main()
 
     elif lab[:1] == "5":
-        #rc4.main()
-        #rc4_v2.main()
-        rc4_v3.main()
+        diffie_hellman.main()
 
 
 
