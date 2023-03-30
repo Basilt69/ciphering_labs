@@ -1,6 +1,8 @@
 import streamlit as st
 import sympy
 
+from random import randint
+
 '''
 Source: https://cryptor.net/bezopasnost/diffie-hellman-protocol?ysclid=lfuy73fi8f479041113
 
@@ -44,12 +46,14 @@ class DH_Endpoint(object):
 # public key - primes generation
 def pub_keys_gen():
     p = sympy.randprime(0,100)
+    g = p * randint(1,100) + 1
     #wiki says that p shall be just prime
     '''if sympy.isprime((p-1)/2):
         return p, 1%p #return p and g(mod p) which are public keys
     else:
-        pub_keys_gen()'''
-    return p, 1 % p  # return p and g(mod p) which are public keys
+        pub_keys_gen()
+    return p, 1 % p'''
+    return p, g # return p and g(mod p) which are public keys
 
 
 # private key - primes generation
