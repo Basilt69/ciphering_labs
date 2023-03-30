@@ -65,7 +65,7 @@ def encrypt_logic(key, text):
     text => array of unicode values / bytes string to encrypt/ decrypt
     '''
     # for plaintext key use this
-    key = [bin(ord(c)) for c in key]
+    key = [ord(c) for c in key]
     # if key is in hex
     # key = codecs.decode(key, 'hex_code')
     # key = [c for c in key]
@@ -74,8 +74,8 @@ def encrypt_logic(key, text):
 
     res = []
     for c in text:
-        st.write('This is c',c)
-        st.write('This is next keystream', next(keystream))
+        st.write('This is c',bin(c))
+        st.write('This is next keystream', bin(next(keystream)))
         val = ("%02X" % (c ^ next(keystream))) # XOR and taking hex
         res.append(val)
     return ''.join(res)
@@ -86,7 +86,7 @@ def encrypt(key, plaintext):
     :param key: encryption key used for encrypting as hex string
     :param plaintext: plaintext string to encrypt
     '''
-    plaintext = [bin(ord(c)) for c in plaintext]
+    plaintext = [ord(c) for c in plaintext]
     return encrypt_logic(key, plaintext)
 
 
